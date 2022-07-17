@@ -20,7 +20,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://194.169.160.226.ru']
+CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://194.169.160.226']
 
 
 # Application definition
