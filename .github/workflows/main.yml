@@ -56,7 +56,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             cd infra
-            sudo docker-compose stop
+            sudo docker-compose down -v
             echo "y" | sudo docker-compose rm web
             rm .env
             touch .env
