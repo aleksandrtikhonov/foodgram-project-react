@@ -1,11 +1,10 @@
 from django_filters import CharFilter, FilterSet, NumberFilter
-from rest_framework.filters import SearchFilter
 
-from .models import Recipe
+from .models import Ingredient, Recipe
 
 
-class IngredientNameSearchFilter(SearchFilter):
-    search_param = 'name'
+class IngredientNameSearchFilter(FilterSet):
+    name = CharFilter(field_name='name', lookup_expr='icontains')
 
 
 class RecipeFilter(FilterSet):

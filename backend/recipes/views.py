@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .filters import RecipeFilter
+from .filters import IngredientNameSearchFilter, RecipeFilter
 from .models import (FavoriteRecipes, Ingredient, Recipe, RecipeIngredient,
                      ShoppingCart, Tag, User)
 from .permissions import IsAuthorOrReadOnly
@@ -19,7 +19,7 @@ class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthorOrReadOnly, ]
     queryset = Ingredient.objects.all()
     filter_backends = [DjangoFilterBackend, ]
-    filterset_fields = ['name', ]
+    filter_class = IngredientNameSearchFilter
     pagination_class = None
 
 
