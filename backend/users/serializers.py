@@ -8,7 +8,6 @@ from .models import Follow
 
 User = get_user_model()
 
-
 class UserSerializer(UserCreateSerializer):
     is_subscribed = serializers.SerializerMethodField()
 
@@ -17,12 +16,12 @@ class UserSerializer(UserCreateSerializer):
         fields = (
             'email',
             'id',
+            'password',
             'username',
             'first_name',
             'last_name',
             'is_subscribed'
         )
-
     def get_is_subscribed(self, obj):
         request = self.context.get('request')
         if request is None or request.user.is_anonymous:

@@ -156,7 +156,7 @@ SIMPLE_JWT = {
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'SERIALIZERS': {
-        'user_create': 'djoser.serializers.UserCreateSerializer',
+        'user_create': 'users.serializers.UserSerializer',
         'set_password': 'djoser.serializers.SetPasswordSerializer',
     },
 
