@@ -4,7 +4,15 @@ from django.db.models import UniqueConstraint
 
 
 class User(AbstractUser):
+    username = models.CharField(
+        max_length=50,
+        unique=True,
+        blank=False,
+        null=False,
+    )
+
     email = models.EmailField(
+        max_length=50,
         unique=True,
         blank=False,
         null=False,
