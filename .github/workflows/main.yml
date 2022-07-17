@@ -68,7 +68,7 @@ jobs:
             ls -lah
             pwd
             sudo docker-compose pull web
-            sudo docker-compose up -d
+            sudo docker-compose -f infra/docker-compose.yml up -d
             # Выполнение миграций и cборка статики
             sudo docker-compose exec -T web sh migrations_and_static.sh
   send_message:
