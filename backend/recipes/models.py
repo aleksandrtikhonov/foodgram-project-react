@@ -21,7 +21,12 @@ class Tag(models.Model):
 
 class Ingredient(models.Model):
     """Ингредиенты для рецептов"""
-    name = models.CharField(max_length=99, null=False, verbose_name='Название')
+    name = models.CharField(
+        max_length=99,
+        null=False,
+        verbose_name='Название',
+        db_collation=True
+    )
     measurement_unit = models.CharField(
         max_length=50,
         null=False,
