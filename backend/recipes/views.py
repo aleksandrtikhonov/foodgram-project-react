@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .filters import IngredientNameSearchFilter, RecipeFilter
+from .filters import RecipeFilter
 from .models import (FavoriteRecipes, Ingredient, Recipe, RecipeIngredient,
                      ShoppingCart, Tag, User)
 from .permissions import IsAuthorOrReadOnly
