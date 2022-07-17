@@ -4,7 +4,7 @@ from .models import Ingredient, Recipe
 
 
 class IngredientNameSearchFilter(FilterSet):
-    name = CharFilter(field_name='name', lookup_expr='contains')
+    name = CharFilter(field_name='name', lookup_expr='icontains')
 
     class Meta:
         model = Ingredient

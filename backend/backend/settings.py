@@ -1,4 +1,5 @@
 import os
+import sys
 from datetime import timedelta
 
 from dotenv import load_dotenv
@@ -18,6 +19,33 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='123')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 SQL_DEBUG = 1
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {'simple': {'format': '%(asctime)s %(levelname)s %(name)s: %(message)s'}},
+    'handlers': {
+        'stderr': {'level': 'DEBUG', 'class': 'logging.StreamHandler', 'stream': sys.stderr, 'formatter': 'simple'},
+    },
+    'loggers': {
+        # '': {'handlers': ['stderr'], 'level': 'DEBUG'},
+        # 'asyncio': {'level': 'INFO', 'propagate': True},
+        # 'celery': {'level': 'WARNING', 'propagate': True},
+        # 'common.middleware': {'level': 'INFO', 'propagate': True},
+        #  'django': {'level': 'DEBUG', 'propagate': True},
+        'django.db.backends': {'level': 'DEBUG', 'propagate': True},
+        #  'django.request': {'level': 'DEBUG', 'propagate': True},
+        #  'django.template': {'level': 'INFO', 'propagate': True},
+        # 'django.utils.autoreload': {'level': 'INFO', 'propagate': True},
+        # 'faker.factory': {'level': 'INFO', 'propagate': True},
+        # 'flower.inspector': {'level': 'ERROR', 'propagate': True},
+        # 'metrics': {'level': 'INFO', 'propagate': True},
+        # 'PIL': {'level': 'WARNING', 'propagate': True},
+        # 'py.warnings': {'level': 'INFO', 'propagate': True},
+        # 'requests': {'level': 'WARNING', 'propagate': True},
+        # 'urllib3.connectionpool': {'level': 'INFO', 'propagate': True},
+    },
+}
 
 ALLOWED_HOSTS = ['*']
 
