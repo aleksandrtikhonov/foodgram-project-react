@@ -4,6 +4,7 @@ from drf_extra_fields.fields import Base64ImageField
 from rest_framework import exceptions, serializers
 
 from users.models import Follow
+
 from .models import (FavoriteRecipes, Ingredient, Recipe, RecipeIngredient,
                      RecipeTag, ShoppingCart, Tag)
 
