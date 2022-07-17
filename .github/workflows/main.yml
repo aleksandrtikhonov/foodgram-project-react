@@ -65,10 +65,8 @@ jobs:
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-            ls -lah
-            pwd
             sudo docker-compose pull web
-            sudo docker-compose -f infra/docker-compose.yml up -d
+            sudo docker-compose up -d
             # Выполнение миграций и cборка статики
             sudo docker-compose exec -T web sh migrations_and_static.sh
   send_message:
