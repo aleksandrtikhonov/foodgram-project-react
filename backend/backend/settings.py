@@ -155,7 +155,10 @@ SIMPLE_JWT = {
 
 DJOSER = {
     'LOGIN_FIELD': 'email',
-    'SERIALIZERS': {'user_create': 'users.serializers.UserSerializer', },
+    'SERIALIZERS': {
+        'user_create': 'djoser.serializers.UserCreateSerializer',
+        'set_password': 'djoser.serializers.SetPasswordSerializer',
+    },
 
 }
 USE_X_FORWARDED_HOST = True
