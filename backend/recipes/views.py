@@ -19,7 +19,7 @@ class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthorOrReadOnly, ]
     queryset = Ingredient.objects.all()
     filter_backends = [DjangoFilterBackend, ]
-    filter_class = IngredientNameSearchFilter
+    filterset_fields = ['name', ]
     pagination_class = None
 
 
