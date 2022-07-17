@@ -17,6 +17,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='123')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SQL_DEBUG = 1
 
 ALLOWED_HOSTS = ['*']
 
