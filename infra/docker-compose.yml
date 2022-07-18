@@ -1,22 +1,21 @@
 version: '3.8'
 services:
   db:
-    image: postgres:13.0-alpine
-    restart: always
+    image: postgres:13.2-alpine
     volumes:
       - ../postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env
-#  web:
-#    image: aleksandrtikhonov/foodgram:latest
-#    restart: always
-#    volumes:
-#      - ../static_value:/app/static/
-#      - ../media_value:/app/media/
-#    depends_on:
-#      - db
-#    env_file:
-#      - ./.env
+  web:
+    image: aleksandrtikhonov/foodgram:latest
+    restart: always
+    volumes:
+      - ../static_value:/app/static/
+      - ../media_value:/app/media/
+    depends_on:
+      - db
+    env_file:
+      - ./.env
   frontend:
     build:
       context: ../frontend
@@ -25,8 +24,8 @@ services:
       - ../frontend/:/app/result_build/
   nginx:
     image: nginx:1.19.3
-#    depends_on:
-#      - web
+    depends_on:
+      - web
     ports:
       - "80:80"
     volumes:
@@ -37,5 +36,5 @@ services:
       - ../media_value:/var/html/media/
 volumes:
   db:
- # web:
+  web:
   nginx:
