@@ -2,7 +2,7 @@ Django==4.0.6
 djangorestframework==3.12.4
 djoser==2.1.0
 django-colorfield
-django-filter
+django-filter==21.1
 drf_extra_fields
 python-dotenv==0.19.0
 psycopg2-binary==2.8.6
