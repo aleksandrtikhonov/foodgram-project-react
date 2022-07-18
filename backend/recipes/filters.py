@@ -30,7 +30,6 @@ class RecipeFilter(FilterSet):
             return queryset.filter(carts_recipe__user=self.request.user)
         return queryset
 
-
     class Meta:
         model = Recipe
         fields = (
