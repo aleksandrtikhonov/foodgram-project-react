@@ -1,14 +1,11 @@
 from django_filters import CharFilter, FilterSet, NumberFilter
+from rest_framework.filters import SearchFilter
 
-from .models import Ingredient, Recipe
+from .models import Recipe
 
 
-class IngredientNameSearchFilter(FilterSet):
-    name = CharFilter(field_name='name', lookup_expr='ilike')
-
-    class Meta:
-        model = Ingredient
-        fields = ('name', )
+class IngredientNameSearchFilter(SearchFilter):
+    search_param = 'name'
 
 
 class RecipeFilter(FilterSet):
