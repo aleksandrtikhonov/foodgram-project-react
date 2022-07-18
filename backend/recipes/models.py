@@ -24,8 +24,7 @@ class Ingredient(models.Model):
     name = models.CharField(
         max_length=99,
         null=False,
-        verbose_name='Название',
-        db_collation=True
+        verbose_name='Название'
     )
     measurement_unit = models.CharField(
         max_length=50,
