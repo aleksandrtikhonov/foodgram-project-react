@@ -20,15 +20,14 @@ class RecipeFilter(FilterSet):
     )
 
     def get_is_favorited(self, queryset, name, value):
-        print(value, 'sssssss', queryset)
         if value == 1 and not self.request.user.is_anonymous:
             return queryset.filter(favorites_recipe__user=self.request.user)
-        return queryset
+        return Recipe.objects.all()
 
     def get_is_in_shopping_cart(self, queryset, name, value):
         if value == 1 and not self.request.user.is_anonymous:
             return queryset.filter(carts_recipe__user=self.request.user)
-        return queryset
+        return Recipe.objects.all()
 
     class Meta:
         model = Recipe
