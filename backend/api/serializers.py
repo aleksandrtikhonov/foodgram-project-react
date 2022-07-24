@@ -173,6 +173,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
                 for ingredient in ingredients_data
             ]
         )
+
     def check_ingredients(self, ingredients_data):
         ingredient_list = []
         for ingredient in ingredients_data:
