@@ -173,15 +173,53 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
                 for ingredient in ingredients_data
             ]
         )
-
-    def validate_ingredients(self, ingredients):
-        for ingredient in ingredients:
-            if ingredient["amount"] <= 0:
+    def chek_ingredients(self, ingredients_data):
+        ingredient_list = []
+        for ingredient in ingredients_data:
+            if ingredient["id"] in ingredient_list:
+                raise serializers.ValidationError(
+                    "Ингредиенты должны быть уникальными"
+                )
+            ingredient_list.append(ingredient["id"])
+            if int(ingredient["amount"]) <= 0:
                 raise exceptions.ValidationError(
                     f"Количество ингредиента {ingredient['id']} "
                     "не должно быть меньше единицы"
                 )
-        return ingredients
+        return ingredients_data
+
+    def validate(self, data):
+        ingredients_data = data.get('ingredients')
+        tags_data = data.get('tags')
+        if len(tags_data) != len(set(tags_data)):
+            raise serializers.ValidationError(
+                "Теги должны быть уникальными"
+            )
+
+        if not data.get('name'):
+            raise serializers.ValidationError(
+                "Название рецепта не может быть пустым"
+            )
+        if not data.get('tags'):
+            raise serializers.ValidationError(
+                "У рецепта должен быть хотя бы один тег"
+            )
+        if not data.get('text'):
+            raise serializers.ValidationError(
+                "Описание рецепта не может быть пустым"
+            )
+        cooking_time = data.get('cooking_time')
+        if not cooking_time:
+            raise serializers.ValidationError(
+                "У рецета должно быть указано время готовки"
+            )
+        if int(cooking_time) < 0:
+            raise serializers.ValidationError(
+                "Время готовки должно быть положительным числом"
+            )
+        self.chek_ingredients(ingredients_data)
+
+        return data
 
     def create(self, validated_data):
         ingredients_data = validated_data.pop("ingredients")

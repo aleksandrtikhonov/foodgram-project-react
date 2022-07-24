@@ -15,12 +15,15 @@ class RequiredInlineFormSet(BaseInlineFormSet):
 class RecipeIngredientInline(admin.TabularInline):
     model = Recipe.ingredients.through
     formset = RequiredInlineFormSet
-    extra = 3
+    extra = 1
+    min_num = 1
 
 
 class RecipeTagInline(admin.TabularInline):
     model = Recipe.tags.through
     formset = RequiredInlineFormSet
+    extra = 2
+    min_num = 1
 
 
 class RecipeAdmin(admin.ModelAdmin):

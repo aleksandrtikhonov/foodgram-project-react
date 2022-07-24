@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "colorfield",
     "django_filters",
     "drf_extra_fields",
+    "api",
     "users",
     "recipes",
 ]
@@ -151,7 +152,7 @@ SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(days=7)}
 DJOSER = {
     "LOGIN_FIELD": "email",
     "SERIALIZERS": {
-        "user_create": "users.serializers.UserSerializer",
+        "user_create": "api.serializers.UserSerializer",
         "set_password": "djoser.serializers.SetPasswordSerializer",
     },
 }

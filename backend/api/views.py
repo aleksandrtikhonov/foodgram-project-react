@@ -3,7 +3,7 @@ from django.shortcuts import HttpResponse, get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from djoser.views import UserViewSet
 from rest_framework import status, viewsets
-from rest_framework.generics import ListAPIView, get_object_or_404
+from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -13,7 +13,6 @@ from recipes.models import (FavoriteRecipes, Ingredient, Recipe, ShoppingCart,
                             Tag)
 from recipes.utils import make_shopping_cart
 from users.models import Follow
-
 from .filters import IngredientNameSearchFilter, RecipeFilter
 from .permissions import IsAuthorOrStaffOrReadOnly
 from .serializers import (AddToFavoriteSerializer,
