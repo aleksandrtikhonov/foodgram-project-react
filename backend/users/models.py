@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models import CheckConstraint, F, UniqueConstraint, Q
 
 
 class User(AbstractUser):
@@ -28,6 +27,9 @@ class Follow(models.Model):
         verbose_name = "Подписка"
         verbose_name_plural = "Подписки"
         constraints = [
-            UniqueConstraint(fields=["user", "author"], name="unique_follow"),
-            CheckConstraint(check=~Q(user=F("author")), name="self_follow"),
+            models.UniqueConstraint(fields=["user", "author"],
+                                    name="unique_follow"),
+            models.CheckConstraint(
+                check=~models.Q(user=models.F("author")), name="self_follow"
+            ),
         ]
