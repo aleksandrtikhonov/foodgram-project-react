@@ -173,7 +173,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
                 for ingredient in ingredients_data
             ]
         )
-    def chek_ingredients(self, ingredients_data):
+    def check_ingredients(self, ingredients_data):
         ingredient_list = []
         for ingredient in ingredients_data:
             if ingredient["id"] in ingredient_list:
@@ -217,7 +217,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 "Время готовки должно быть положительным числом"
             )
-        self.chek_ingredients(ingredients_data)
+        self.check_ingredients(ingredients_data)
 
         return data
 

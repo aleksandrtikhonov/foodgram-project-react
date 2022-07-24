@@ -32,6 +32,3 @@ class Follow(models.Model):
             UniqueConstraint(fields=["user", "author"], name="unique_follow"),
             CheckConstraint(check=~Q(user=F("author")), name="self_follow"),
         ]
-
-    def clean(self):
-        return "ssss"
