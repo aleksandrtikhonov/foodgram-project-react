@@ -14,8 +14,10 @@
 На этом сервисе пользователи могут публиковать рецепты, подписываться на публикации других пользователей, добавлять понравившиеся рецепты в список «Избранное», а перед походом в магазин скачивать сводный список продуктов, необходимых для приготовления одного или нескольких выбранных блюд.
  
 ### Деплой приложения
-Склонировать репозиторий https://github.com/aleksandrtikhonov/foodgram-project-react
+Склонировать репозиторий https://github.com/aleksandrtikhonov/foodgram-project-react.git
+
 Создать github actions https://github.com/ваш_профиль/ваш_репозиторий/actions
+
 Заменить содержимое .github/workflows/main.yaml на данные из foodgram_workflow.yaml(находится в корне проекта)
 
 В https://github.com/ваш_профиль/ваш_репозиторий/settings/secrets/actions создать новые secrets
