@@ -1,11 +1,3 @@
-```shell
-"Доступные данные на момент ревью"
-Проект запущен на http://194.169.160.226/
-Учётные данные для администратора:
-Логин   -   admin@admin.ru
-Пароль  -   admin
-```
-
 ![Actions Status](https://github.com/aleksandrtikhonov/foodgram-project-react/actions/workflows/main.yml/badge.svg)
 
 # foodgram-project-react
@@ -51,13 +43,8 @@ docker-compose up -d
 
 При внесении изменений в код на github, проект самостоятельно соберётся и задеплоится на сервер.
 _______________________________________________________________
-Пример развёрнутого приложения:
-
-```shell
-http://194.169.160.226/
-```
 
 Ознакомиться с реализованными методами API:
 ```shell
-http://194.169.160.226/api/docs/redoc.html
+http://localhost/api/docs/redoc.html
 ```
